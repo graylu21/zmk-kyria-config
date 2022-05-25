@@ -41,6 +41,8 @@
 			>;
 		};
 
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+
 		rsthd_layer {
 // ---------------------------------------------------------------------------------------------------------------------------------
 // | CTRL |  J  |  C  |  Y   |  F   |  K   |                                          |  Z   |  L    |  ,    |  U   |   Q   | CTRL |
@@ -54,6 +56,8 @@
 	        &mo _NUMPQ &kp E &kp BSPC &pht LSHFT CAPSLOCK &kp LALT        &kp RALT &pht RSHFT CAPSLOCK  &kp SPACE &kp K_APP &mo _NAVI
 			>;
 		};
+
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 
 		num_pad_layer {
 // ---------------------------------------------------------------------------------------------------------------------------------
@@ -69,6 +73,8 @@
 			>;
 		};
 
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+
 		navigation_layer {
 // ---------------------------------------------------------------------------------------------------------------------------------
 // | CTRL |  Q  |  W  |  E   |  R   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   | CTRL |
@@ -82,5 +88,7 @@
 	                      &mo _NUMPQ &kp SQT &kp BSPC &pht LSHFT CAPSLOCK &kp LALT         &kp RALT &pht RSHFT CAPSLOCK  &kp SPACE &kp K_APP &mo _NAVI
 			>;
 		};
+
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 	};
 };
