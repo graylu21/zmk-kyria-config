@@ -24,8 +24,8 @@
 // | GUI  |  Z  |  X  |  C   |  V   |  B   | L SHIFT | L SHIFT |  | R SHIFT | R SHIFT |  N   |  M    |  ,    |  .   |   /   | GUI  |
 //                    | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 			bindings = <
-	&kp TAB   &kp Q &kp W &kp E &kp R &kp T                                                &kp Y &kp U  &kp I     &kp O   &kp P    &kp ENTER
-	&kp LCTRL &kp A &kp S &kp D &kp F &kp G                                                &kp H &kp J  &kp K     &kp L   &kp SEMI &kp RCTRL
+	&kp LCTRL &kp Q &kp W &kp E &kp R &kp T                                                &kp Y &kp U  &kp I     &kp O   &kp P    &kp RCTRL
+	&kp TAB   &kp A &kp S &kp D &kp F &kp G                                                &kp H &kp J  &kp K     &kp L   &kp SEMI &kp ENTER
 	&kp LGUI  &kp Z &kp X &kp C &kp V &kp B &kp LSHFT &kp LSHFT        &kp RSHFT &kp RSHFT &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RGUI
                  &mo _NUMPQ &kp SQT &kp BSPC &kp LSHFT &kp LALT        &kp RALT &kp RSHFT  &kp SPACE &kp K_APP &mo _NAVI
 			>;
@@ -40,8 +40,8 @@
 // | GUI  |  Z  |  X  |  C   |  V   |  B   | L SHIFT | L SHIFT |  | R SHIFT | R SHIFT |  N   |  M    |  ,    |  .   |   /   | GUI  |
 //                    | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 			bindings = <
-	&kp TAB   &kp J    &kp C &kp Y &kp F &kp K                                                &kp Z &kp L  &kp COMMA &kp U    &kp Q   &kp ENTER
-	&kp LCTRL &kp R    &kp S &kp T &kp H &kp D                                                &kp M &kp N  &kp A     &kp I    &kp O   &kp RCTRL
+	&kp LCTRL &kp J    &kp C &kp Y &kp F &kp K                                                &kp Z &kp L  &kp COMMA &kp U    &kp Q   &kp RCTRL
+	&kp TAB   &kp R    &kp S &kp T &kp H &kp D                                                &kp M &kp N  &kp A     &kp I    &kp O   &kp ENTER
 	&kp LGUI  &kp FSLH &kp V &kp G &kp P &kp B &kp LSHFT &kp LSHFT        &kp RSHFT &kp RSHFT &kp X &kp W  &kp DOT   &kp SEMI &kp SQT &kp RGUI
 	                  &mo _NUMPQ &kp E &kp BSPC &kp LSHFT &kp LALT        &kp RALT &kp RSHFT  &kp SPACE &kp K_APP &mo _NAVI
 			>;
@@ -56,8 +56,8 @@
 // | GUI  |  Z  |  X  |  C   |  V   |  B   | L SHIFT | L SHIFT |  | R SHIFT | R SHIFT |  N   |  M    |  ,    |  .   |   /   | GUI  |
 //                    | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 			bindings = <
-	&kp TAB   &kp F12 &kp F7 &kp F8 &kp F9 &kp LBKT                                           &kp GRAVE &kp N7 &kp N8 &kp N9 &kp EQUAL &kp ENTER
-	&kp LCTRL &kp F10 &kp F4 &kp F5 &kp F6 &kp ESC                                            &none     &kp N4 &kp N5 &kp N6 &kp N0    &kp RCTRL
+	&kp LCTRL &kp F12 &kp F7 &kp F8 &kp F9 &kp LBKT                                           &kp GRAVE &kp N7 &kp N8 &kp N9 &kp EQUAL &kp RCTRL
+	&kp TAB   &kp F10 &kp F4 &kp F5 &kp F6 &kp ESC                                            &none     &kp N4 &kp N5 &kp N6 &kp N0    &kp ENTER
 	&kp LGUI  &kp F11 &kp F1 &kp F2 &kp F3 &kp RBKT &kp LSHFT &kp LSHFT   &kp RSHFT &kp RSHFT &kp BSLH  &kp N1 &kp N2 &kp N3 &kp MINUS &kp RGUI
 	                    &mo _NUMPQ &kp SQT &kp BSPC &kp LSHFT &kp LALT    &kp RALT  &kp RSHFT  &kp SPACE &kp K_APP &mo _NAVI
 			>;
@@ -72,8 +72,8 @@
 // | GUI  |  Z  |  X  |  C   |  V   |  B   | L SHIFT | L SHIFT |  | R SHIFT | R SHIFT |  N   |  M    |  ,    |  .   |   /   | GUI  |
 //                    | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 			bindings = <
-	&kp TAB   &kp C_VOL_UP &kp HOME   &kp UP   &kp END    &kp PG_UP                                            &none &bt BT_SEL 7  &bt BT_SEL 8 &bt BT_SEL 9 &none        &kp ENTER
-	&kp LCTRL &kp C_VOL_DN &kp LEFT   &kp DOWN &kp RIGHT  &kp PG_DN                                            &none &bt BT_SEL 4  &bt BT_SEL 5 &bt BT_SEL 6 &bt BT_SEL 0 &kp RCTRL
+	&kp LCTRL &kp C_VOL_UP &kp HOME   &kp UP   &kp END    &kp PG_UP                                            &none &bt BT_SEL 7  &bt BT_SEL 8 &bt BT_SEL 9 &none        &kp RCTRL
+	&kp TAB   &kp C_VOL_DN &kp LEFT   &kp DOWN &kp RIGHT  &kp PG_DN                                            &none &bt BT_SEL 4  &bt BT_SEL 5 &bt BT_SEL 6 &bt BT_SEL 0 &kp ENTER
 	&kp LGUI  &kp C_MUTE   &kp C_PREV &kp C_PP &kp C_NEXT &none &kp LSHFT &kp LSHFT        &kp RSHFT &kp RSHFT &none &bt BT_SEL 1  &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR   &kp RGUI
 	                                &mo _NUMPQ &kp SQT &kp BSPC &kp LSHFT &kp LALT         &kp RALT &kp RSHFT  &kp SPACE &kp K_APP &mo _NAVI
 			>;
