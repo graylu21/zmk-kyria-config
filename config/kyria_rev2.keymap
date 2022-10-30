@@ -74,10 +74,10 @@
 
 		rsthd_layer {
 // ---------------------------------------------------------------------------------------------------------------------------------
-// | CTRL |  J  |  C  |  Y   |  F   |  K   |                                          |  Z   |  L    |  ,    |  U   |   Q   | CTRL |
-// | TAB  |  R  |  S  |  T   |  H   |  D   |                                          |  M   |  N    |  A    |  I   |   O   | RET  |
-// | GUI  |  !  |  V  |  G   |  P   |  B   |                                          |  X   |  W    |  .    |  ;   |   '   | GUI  |
-//                           |NUMPQ | BKSP |    E    |   ALT   |  |  RSHFT  |  SPACE  | DEL  | NAVI  |
+// | CTRL |  J  |  C  |  Y   |   F   |  K   |                                          |  Z   |  L    |  ,    |  U   |   Q   | CTRL |
+// | TAB  |  R  |  S  |  T   |   H   |  D   |                                          |  M   |  N    |  A    |  I   |   O   | RET  |
+// | GUI  |  !  |  V  |  G   |   P   |  B   |                                          |  X   |  W    |  .    |  ;   |   '   | GUI  |
+//                           | NAVIG | BKSP |    E    |   ALT   |  |  RSHFT  |  SPACE  | DEL  | NUMPQ |
 			bindings = <
 	&kp LCTRL &kp J    &kp C &kp Y  &kp F      &kp K                                               &kp Z    &kp L     &kp COMMA &kp U    &kp Q   &kp RCTRL
 	&kp TAB   &kp R    &kp S &kp T  &kp H      &kp D                                               &kp M    &kp N     &kp A     &kp I    &kp O   &kp ENTER
@@ -88,10 +88,10 @@
 
 		num_pad_layer {
 // ---------------------------------------------------------------------------------------------------------------------------------
-// | CTRL |  J  |  C  |  Y   |  F   |  K   |                                          |  Z   |  L    |  ,    |  U   |   Q   | CTRL |
-// | TAB  |  R  |  S  |  T   |  H   |  D   |                                          |  M   |  N    |  A    |  I   |   O   | RET  |
-// | GUI  |  !  |  V  |  G   |  P   |  B   |                                          |  X   |  W    |  .    |  ;   |   '   | GUI  |
-//                           |NUMPQ | BKSP |    E    |   ALT   | |  RSHFT  |  SPACE  | DEL  | NAVI  |
+// | CTRL | F12 |  F7 |  F8  |   F9  |  [   |                                          |  `   |  7    |  8   |  9   |   =   | CTRL |
+// | TAB  | F10 |  F4 |  F5  |   F6  |  ESC |                                          |      |  4    |  5   |  6   |   0   | RET  |
+// | GUI  | F11 |  F1 |  F2  |   F3  |  ]   |                                          |  \   |  1    |  2   |  3   |   -   | GUI  |
+//                           | NAVIG | BKSP |    E    |   ALT   |  |  RSHFT  |  SPACE  | DEL  | NUMPQ |
 			bindings = <
 	&kp LCTRL &kp F12 &kp F7 &kp F8 &kp F9     &kp LBKT                                            &kp GRAVE &kp N7   &kp N8 &kp N9      &kp EQUAL &kp RCTRL
 	&kp TAB   &kp F10 &kp F4 &kp F5 &kp F6     &kp ESC                                             &none     &kp N4   &kp N5 &kp N6      &zerohash &kp ENTER
@@ -102,10 +102,10 @@
 
 		navigation_layer {
 // ---------------------------------------------------------------------------------------------------------------------------------
-// | CTRL |  J  |  C  |  Y   |  F   |  K   |                                          |  Z   |  L    |  ,    |  U   |   Q   | CTRL |
-// | TAB  |  R  |  S  |  T   |  H   |  D   |                                          |  M   |  N    |  A    |  I   |   O   | RET  |
-// | GUI  |  !  |  V  |  G   |  P   |  B   |                                          |  X   |  W    |  .    |  ;   |   '   | GUI  |
-//                           |NUMPQ | BKSP |    E    |   ALT   | |  RRSTHD  |  SPACE  | DEL  | NAVI  |
+// | CTRL |  J  |  C  |  Y   |   F   |  K   |                                          |  Z   |  L    |  ,    |  U   |   Q   | CTRL |
+// | TAB  |  R  |  S  |  T   |   H   |  D   |                                          |  M   |  N    |  A    |  I   |   O   | RET  |
+// | GUI  |  !  |  V  |  G   |   P   |  B   |                                          |  X   |  W    |  .    |  ;   |   '   | GUI  |
+//                           | NAVIG | BKSP |    E    |   ALT   | |  RRSTHD  |  SPACE  | DEL  | NUMPQ |
 			bindings = <
 	&kp LCTRL &kp C_VOL_UP &kp HOME   &kp UP    &kp END    &kp PG_UP                                             &none       &none        &none        &none        &none &kp RCTRL
 	&kp TAB   &kp C_VOL_DN &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN                                             &none       &none        &none        &none        &none &kp ENTER
