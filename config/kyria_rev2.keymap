@@ -18,14 +18,15 @@
             label = "ZM_exclame";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+			wait-ms = <16>;
             bindings
-                = <&macro_wait_time  16>
-                , <&macro_press &kp LSHFT>
+                = <&macro_press &kp LSHFT>
 				, <&macro_tap &kp N1>
                 , <&macro_release &kp LSHFT>
                 ;
         };
     };
+	
 	behaviors {
         endpunc: end_punc {
             compatible = "zmk,behavior-mod-morph";
@@ -67,6 +68,7 @@
             keep-mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
+
 	keymap {
 		compatible = "zmk,keymap";
 
