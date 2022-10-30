@@ -19,10 +19,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LSHFT>
-				, <&macro_tap_time 16>
-                , <&macro_tap &kp N1>
-				, <&macro_tap_time 16>
+                = <&macro_wait_time  16>
+                , <&macro_press &kp LSHFT>
+				, <&macro_tap &kp N1>
                 , <&macro_release &kp LSHFT>
                 ;
         };
@@ -83,6 +82,8 @@
 	&kp LGUI  &endpunc &kp V &kp G  &kp P      &kp B    &none  &none          &none     &none      &kp X    &kp W     &kp DOT   &kp SEMI &kp SQT &kp RGUI
 	                    	 &none  &mo _NAVIG &kp BSPC &kp E  &kp LALT       &mo RSHFT &kp SPACE  &kp DEL  &mo _NUMPQ &none
 			>;
+
+			sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
 
 		num_pad_layer {
@@ -97,6 +98,8 @@
 	&kp LGUI  &kp F11 &kp F1 &kp F2 &kp F3     &kp RBKT  &none    &none       &none      &none     &slashes  &one_pipe &kp N2 &three_paren &kp MINUS  &kp RGUI
 	                         &none  &mo _NAVIG &kp BSPC  &kp E    &kp LALT    &mo RSHFT  &kp SPACE &kp DEL   &mo _NUMPQ &none
 			>;
+
+			sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
 
 		navigation_layer {
@@ -111,6 +114,8 @@
 	&kp LGUI  &kp C_MUTE   &kp C_PREV &kp C_PP  &kp C_NEXT &none     &none &none            &none      &none     &kp K_APP   &bt BT_NXT &bt BT_CLR &bt BT_PRV &none &kp RGUI
 	                                  &none     &mo _NAVIG &kp BSPC  &kp E &kp LALT         &kp RSHFT  &kp SPACE &kp DEL     &mo _NUMPQ &none
 			>;
+
+			sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
 	};
 };
