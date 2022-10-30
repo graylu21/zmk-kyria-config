@@ -9,93 +9,109 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define _RSTHD 0
-#define RRSTHD 1
-#define _NUMPQ 2
-#define RNUMPQ 3
-#define _NAVI 4
+#define _NUMPQ 1
+#define _NAVIG 2
 
 / {
+    macros {
+        exclame: exclame {
+            label = "ZM_exclame";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+			wait-ms = <16>;
+            bindings
+                = <&macro_press &kp LSHFT>
+				, <&macro_tap &kp N1>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
+    };
+
+	behaviors {
+        endpunc: end_punc {
+            compatible = "zmk,behavior-mod-morph";
+            label = "END_PUNC";
+            #binding-cells = <0>;
+            bindings = <&exclame>, <&kp FSLH>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        slashes: slashes {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SLASHES";
+            #binding-cells = <0>;
+            bindings = <&kp BSLH>, <&kp FSLH>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        onepipe: one_pipe {
+            compatible = "zmk,behavior-mod-morph";
+            label = "ONE_PIPE";
+            #binding-cells = <0>;
+            bindings = <&kp N1>, <&kp BSLH>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        threeparen: three_paren {
+            compatible = "zmk,behavior-mod-morph";
+            label = "THREE_PAREN";
+            #binding-cells = <0>;
+            bindings = <&kp N3>, <&kp N0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        zerohash: zero_hash {
+            compatible = "zmk,behavior-mod-morph";
+            label = "ZERO_HASH";
+            #binding-cells = <0>;
+            bindings = <&kp N0>, <&kp N3>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+
 	keymap {
 		compatible = "zmk,keymap";
 
 		rsthd_layer {
 // ---------------------------------------------------------------------------------------------------------------------------------
-// | CTRL |  J  |  C  |  Y   |  F   |  K   |                                          |  Z   |  L    |  ,    |  U   |   Q   | CTRL |
-// | TAB  |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   | RET  |
-// | GUI  |  Z  |  X  |  C   |  V   |  B   | L SHIFT | L SHIFT |  | R SHIFT | R SHIFT |  N   |  M    |  ,    |  .   |   /   | GUI  |
-//                    | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
+// | CTRL |  J  |  C  |  Y   |   F   |  K   |                                          |  Z   |  L    |  ,    |  U   |   Q   | CTRL |
+// | TAB  |  R  |  S  |  T   |   H   |  D   |                                          |  M   |  N    |  A    |  I   |   O   | RET  |
+// | GUI  |  !  |  V  |  G   |   P   |  B   |                                          |  X   |  W    |  .    |  ;   |   '   | GUI  |
+//                           | NAVIG | BKSP |    E    |   ALT   |  |  RSHFT  |  SPACE  | DEL  | NUMPQ |
 			bindings = <
-	&kp LCTRL &kp J      &kp C &kp Y  &kp F      &kp K                                                &kp Z    &kp L     &kp COMMA &kp U    &kp Q   &kp RCTRL
-	&kp TAB   &kp R      &kp S &kp T  &kp H      &kp D                                                &kp M    &kp N     &kp A     &kp I    &kp O   &kp ENTER
-	&kp LGUI  &kp RS(N1) &kp V &kp G  &kp P      &kp B    &none  &none          &none      &none      &kp X    &kp W     &kp DOT   &kp SEMI &kp SQT &kp RGUI
-	                           &none  &mo _NUMPQ &kp BSPC &kp E  &kp LALT       &mo RRSTHD &kp SPACE  &kp DEL  &mo _NAVI &none
+	&kp LCTRL &kp J    &kp C &kp Y  &kp F      &kp K                                               &kp Z    &kp L     &kp COMMA &kp U    &kp Q   &kp RCTRL
+	&kp TAB   &kp R    &kp S &kp T  &kp H      &kp D                                               &kp M    &kp N     &kp A     &kp I    &kp O   &kp ENTER
+	&kp LGUI  &endpunc &kp V &kp G  &kp P      &kp B    &none  &none          &none     &none      &kp X    &kp W     &kp DOT   &kp SEMI &kp SQT &kp RGUI
+	                    	 &none  &mo _NAVIG &kp BSPC &kp E  &kp LALT       &kp RSHFT &kp SPACE  &kp DEL  &mo _NUMPQ &none
 			>;
-
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-		};
-
-		r_shift_rsthd_layer {
-// ---------------------------------------------------------------------------------------------------------------------------------
-// | CTRL |  J  |  C  |  Y   |  F   |  K   |                                          |  Z   |  L    |  ,    |  U   |   Q   | CTRL |
-// | TAB  |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   | RET  |
-// | GUI  |  Z  |  X  |  C   |  V   |  B   | L SHIFT | L SHIFT |  | R SHIFT | R SHIFT |  N   |  M    |  ,    |  .   |   /   | GUI  |
-//                    | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
-			bindings = <
-	&kp RS(LCTRL) &kp RS(J)    &kp RS(C) &kp RS(Y)  &kp RS(F)    &kp RS(K)                                                          &kp RS(Z)     &kp RS(L)   &kp RS(COMMA) &kp RS(U)    &kp RS(Q)   &kp RS(RCTRL)
-	&kp RS(TAB)   &kp RS(R)    &kp RS(S) &kp RS(T)  &kp RS(H)    &kp RS(D)                                                          &kp RS(M)     &kp RS(N)   &kp RS(A)     &kp RS(I)    &kp RS(O)   &kp RS(ENTER)
-	&kp RS(LGUI)  &kp RS(FSLH) &kp RS(V) &kp RS(G)  &kp RS(P)    &kp RS(B)    &none     &none              &none      &none         &kp RS(X)     &kp RS(W)   &kp RS(DOT)   &kp RS(SEMI) &kp RS(SQT) &kp RS(RGUI)
-	                                     &none      &mo _NUMPQ   &kp RS(BSPC) &kp RS(E) &kp RS(LALT)       &mo RRSTHD &kp RS(SPACE) &kp RS(DEL)   &mo _NAVI   &none
-			>;
-
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
 
 		num_pad_layer {
 // ---------------------------------------------------------------------------------------------------------------------------------
-// | CTRL |  Q  |  W  |  E   |  R   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   | CTRL |
-// | TAB  |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   | RET  |
-// | GUI  |  Z  |  X  |  C   |  V   |  B   | L SHIFT | L SHIFT |  | R SHIFT | R SHIFT |  N   |  M    |  ,    |  .   |   /   | GUI  |
-//                    | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
+// | CTRL | F12 |  F7 |  F8  |   F9  |  [   |                                          |  `   |  7    |  8   |  9   |   =   | CTRL |
+// | TAB  | F10 |  F4 |  F5  |   F6  |  ESC |                                          |      |  4    |  5   |  6   |   0   | RET  |
+// | GUI  | F11 |  F1 |  F2  |   F3  |  ]   |                                          |  \   |  1    |  2   |  3   |   -   | GUI  |
+//                           | NAVIG | BKSP |    E    |   ALT   |  |  RSHFT  |  SPACE  | DEL  | NUMPQ |
 			bindings = <
-	&kp LCTRL &kp F12 &kp F7 &kp F8 &kp F9     &kp LBKT                                             &kp GRAVE &kp N7    &kp N8 &kp N9 &kp EQUAL &kp RCTRL
-	&kp TAB   &kp F10 &kp F4 &kp F5 &kp F6     &kp ESC                                              &none     &kp N4    &kp N5 &kp N6 &kp N0    &kp ENTER
-	&kp LGUI  &kp F11 &kp F1 &kp F2 &kp F3     &kp RBKT  &none    &none       &none       &none     &kp BSLH  &kp N1    &kp N2 &kp N3 &kp MINUS &kp RGUI
-	                         &none  &mo _NUMPQ &kp BSPC  &kp E    &kp LALT    &mo RNUMPQ  &kp SPACE &kp DEL   &mo _NAVI &none
+	&kp LCTRL &kp F12 &kp F7 &kp F8 &kp F9     &kp LBKT                                            &kp GRAVE &kp N7   &kp N8 &kp N9      &kp EQUAL &kp RCTRL
+	&kp TAB   &kp F10 &kp F4 &kp F5 &kp F6     &kp ESC                                             &none     &kp N4   &kp N5 &kp N6      &zerohash &kp ENTER
+	&kp LGUI  &kp F11 &kp F1 &kp F2 &kp F3     &kp RBKT  &none    &none       &none      &none     &slashes  &onepipe &kp N2 &threeparen &kp MINUS &kp RGUI
+	                         &none  &mo _NAVIG &kp BSPC  &kp E    &kp LALT    &kp RSHFT  &kp SPACE &kp DEL   &mo _NUMPQ &none
 			>;
-
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-		};
-
-		r_shift_num_pad_layer {
-// ---------------------------------------------------------------------------------------------------------------------------------
-// | CTRL |  Q  |  W  |  E   |  R   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   | CTRL |
-// | TAB  |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   | RET  |
-// | GUI  |  Z  |  X  |  C   |  V   |  B   | L SHIFT | L SHIFT |  | R SHIFT | R SHIFT |  N   |  M    |  ,    |  .   |   /   | GUI  |
-//                    | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
-			bindings = <
-	&kp RS(LCTRL) &kp RS(F12) &kp RS(F7) &kp RS(F8) &kp RS(F9) &kp RS(LBKT)                                                        &kp RS(GRAVE) &kp RS(N7)   &kp RS(N8) &kp RS(N9) &kp RS(EQUAL) &kp RS(RCTRL)
-	&kp RS(TAB)   &kp RS(F10) &kp RS(F4) &kp RS(F5) &kp RS(F6) &kp RS(ESC)                                                         &none         &kp RS(N4)   &kp RS(N5) &kp RS(N6) &kp RS(N3)    &kp RS(ENTER)
-	&kp RS(LGUI)  &kp RS(F11) &kp RS(F1) &kp RS(F2) &kp RS(F3) &kp RS(RBKT)  &none      &none            &none       &none         &kp FSLH      &kp RS(BSLH) &kp RS(N2) &kp RS(N0) &kp RS(MINUS) &kp RS(RGUI)
-	                                     &none      &mo _NUMPQ &kp RS(BSPC)  &kp RS(E)  &kp RS(LALT)     &mo RNUMPQ  &kp RS(SPACE) &kp RS(DEL)   &mo _NAVI    &none
-			>;
-
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
 
 		navigation_layer {
 // ---------------------------------------------------------------------------------------------------------------------------------
-// | CTRL |  Q  |  W  |  E   |  R   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   | CTRL |
-// | TAB  |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   | RET  |
-// | GUI  |  Z  |  X  |  C   |  V   |  B   | L SHIFT | L SHIFT |  | R SHIFT | R SHIFT |  N   |  M    |  ,    |  .   |   /   | GUI  |
-//                    | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
+// | CTRL |  J  |  C  |  Y   |   F   |  K   |                                          |  Z   |  L    |  ,    |  U   |   Q   | CTRL |
+// | TAB  |  R  |  S  |  T   |   H   |  D   |                                          |  M   |  N    |  A    |  I   |   O   | RET  |
+// | GUI  |  !  |  V  |  G   |   P   |  B   |                                          |  X   |  W    |  .    |  ;   |   '   | GUI  |
+//                           | NAVIG | BKSP |    E    |   ALT   | |  RRSTHD  |  SPACE  | DEL  | NUMPQ |
 			bindings = <
-	&kp LCTRL &kp C_VOL_UP &kp HOME   &kp UP    &kp END    &kp PG_UP                                             &none       &none      &none      &none      &none &kp RCTRL
-	&kp TAB   &kp C_VOL_DN &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN                                             &none       &none      &none      &none      &none &kp ENTER
-	&kp LGUI  &kp C_MUTE   &kp C_PREV &kp C_PP  &kp C_NEXT &none     &none &none            &none      &none     &kp K_APP   &bt BT_NXT &bt BT_CLR &bt BT_PRV &none &kp RGUI
-	                                  &none     &mo _NUMPQ &kp BSPC  &kp E &kp LALT         &kp RSHFT  &kp SPACE &kp RS(DEL) &mo _NAVI  &none
+	&kp LCTRL &kp C_VOL_UP &kp HOME   &kp UP    &kp END    &kp PG_UP                                             &none       &none        &none        &none        &none &kp RCTRL
+	&kp TAB   &kp C_VOL_DN &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN                                             &none       &none        &none        &none        &none &kp ENTER
+	&kp LGUI  &kp C_MUTE   &kp C_PREV &kp C_PP  &kp C_NEXT &none     &none &none            &none      &none     &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &none &kp RGUI
+	                                  &none     &mo _NAVIG &kp BSPC  &kp E &kp LALT         &kp RSHFT  &kp SPACE &kp DEL     &mo _NUMPQ   &none
 			>;
-
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
 	};
 };
