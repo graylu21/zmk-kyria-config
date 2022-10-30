@@ -82,7 +82,7 @@
 	&kp LCTRL &kp J    &kp C &kp Y  &kp F      &kp K                                               &kp Z    &kp L     &kp COMMA &kp U    &kp Q   &kp RCTRL
 	&kp TAB   &kp R    &kp S &kp T  &kp H      &kp D                                               &kp M    &kp N     &kp A     &kp I    &kp O   &kp ENTER
 	&kp LGUI  &endpunc &kp V &kp G  &kp P      &kp B    &none  &none          &none     &none      &kp X    &kp W     &kp DOT   &kp SEMI &kp SQT &kp RGUI
-	                    	 &none  &mo _NAVIG &kp BSPC &kp E  &kp LALT       &mo RSHFT &kp SPACE  &kp DEL  &mo _NUMPQ &none
+	                    	 &none  &mo _NAVIG &kp BSPC &kp E  &kp LALT       &kp RSHFT &kp SPACE  &kp DEL  &mo _NUMPQ &none
 			>;
 
 			sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -98,7 +98,7 @@
 	&kp LCTRL &kp F12 &kp F7 &kp F8 &kp F9     &kp LBKT                                            &kp GRAVE &kp N7   &kp N8 &kp N9      &kp EQUAL &kp RCTRL
 	&kp TAB   &kp F10 &kp F4 &kp F5 &kp F6     &kp ESC                                             &none     &kp N4   &kp N5 &kp N6      &zerohash &kp ENTER
 	&kp LGUI  &kp F11 &kp F1 &kp F2 &kp F3     &kp RBKT  &none    &none       &none      &none     &slashes  &onepipe &kp N2 &threeparen &kp MINUS &kp RGUI
-	                         &none  &mo _NAVIG &kp BSPC  &kp E    &kp LALT    &mo RSHFT  &kp SPACE &kp DEL   &mo _NUMPQ &none
+	                         &none  &mo _NAVIG &kp BSPC  &kp E    &kp LALT    &kp RSHFT  &kp SPACE &kp DEL   &mo _NUMPQ &none
 			>;
 
 			sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp C_VOL_DN C_VOL_UP>;
