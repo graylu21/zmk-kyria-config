@@ -67,6 +67,22 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
             keep-mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        jcut: j_cut {
+            compatible = "zmk,behavior-mod-morph";
+            label = "J_CUT";
+            #binding-cells = <0>;
+            bindings = <&kp J>, <&kp X>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+            keep-mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+        exall: ex_all {
+            compatible = "zmk,behavior-mod-morph";
+            label = "EX_ALL";
+            #binding-cells = <0>;
+            bindings = <&endpunc>, <&kp A>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+            keep-mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
     };
 
 	keymap {
@@ -74,15 +90,15 @@
 
 		rsthd_layer {
 // ---------------------------------------------------------------------------------------------------------------------------------
-// | CTRL |  J  |  C  |  Y   |   F   |  K   |                                          |  Z   |  L    |  ,    |  U   |   Q   | CTRL |
-// | TAB  |  R  |  S  |  T   |   H   |  D   |                                          |  M   |  N    |  A    |  I   |   O   | RET  |
-// | GUI  |  !  |  V  |  G   |   P   |  B   |                                          |  X   |  W    |  .    |  ;   |   '   | GUI  |
-//                           | NAVIG | BKSP |    E    |   ALT   |  |  RSHFT  |  SPACE  | DEL  | NUMPQ |
+// | BKSP |  J  |  C  |  Y   |  F   |   K   |                                          |   Z   |  L    |  ,    |  U   |   Q   | DEL  |
+// | TAB  |  R  |  S  |  T   |  H   |   D   |                                          |   M   |  N    |  A    |  I   |   O   | RET  |
+// | CTRL |  !  |  V  |  G   |  P   |   B   |                                          |   X   |  W    |  .    |  ;   |   '   | GUI  |
+//                                  | NAVIG |    E    |   ALT   |  |  RSHFT  |  SPACE  | NUMPQ |
 			bindings = <
-	&kp LCTRL &kp J    &kp C &kp Y  &kp F      &kp K                                               &kp Z    &kp L     &kp COMMA &kp U    &kp Q   &kp RCTRL
-	&kp TAB   &kp R    &kp S &kp T  &kp H      &kp D                                               &kp M    &kp N     &kp A     &kp I    &kp O   &kp ENTER
-	&kp LGUI  &endpunc &kp V &kp G  &kp P      &kp B    &none  &none          &none     &none      &kp X    &kp W     &kp DOT   &kp SEMI &kp SQT &kp RGUI
-	                    	 &none  &mo _NAVIG &kp BSPC &kp E  &kp LALT       &kp RSHFT &kp SPACE  &kp DEL  &mo _NUMPQ &none
+	&kp BSPC  &jcut    &kp C &kp Y  &kp F  &kp K                                                 &kp Z      &kp L   &kp COMMA &kp U    &kp Q   &kp DEL
+	&kp TAB   &kp R    &kp S &kp T  &kp H  &kp D                                                 &kp M      &kp N   &kp A     &kp I    &kp O   &kp ENTER
+	&kp LCTRL &exall   &kp V &kp G  &kp P  &kp B      &none  &none          &none     &none      &kp X      &kp W   &kp DOT   &kp SEMI &kp SQT &kp RGUI
+	                    	 &none  &none  &mo _NUMPQ &kp E  &kp LALT       &kp RSHFT &kp SPACE  &mo _NAVIG &none   &none
 			>;
 		};
 
@@ -93,10 +109,10 @@
 // | GUI  | F11 |  F1 |  F2  |   F3  |  ]   |                                          |  \   |  1    |  2   |  3   |   -   | GUI  |
 //                           | NAVIG | BKSP |    E    |   ALT   |  |  RSHFT  |  SPACE  | DEL  | NUMPQ |
 			bindings = <
-	&kp LCTRL &kp F12 &kp F7 &kp F8 &kp F9     &kp LBKT                                            &kp GRAVE &kp N7   &kp N8 &kp N9      &kp EQUAL &kp RCTRL
-	&kp TAB   &kp F10 &kp F4 &kp F5 &kp F6     &kp ESC                                             &none     &kp N4   &kp N5 &kp N6      &zerohash &kp ENTER
-	&kp LGUI  &kp F11 &kp F1 &kp F2 &kp F3     &kp RBKT  &none    &none       &none      &none     &slashes  &onepipe &kp N2 &threeparen &kp MINUS &kp RGUI
-	                         &none  &mo _NAVIG &kp BSPC  &kp E    &kp LALT    &kp RSHFT  &kp SPACE &kp DEL   &mo _NUMPQ &none
+	&kp BSPC  &kp F12 &kp F7 &kp F8 &kp F9  &kp LBKT                                           &kp GRAVE  &kp N7   &kp N8 &kp N9      &kp EQUAL &kp DEL
+	&kp TAB   &kp F10 &kp F4 &kp F5 &kp F6  &kp ESC                                            &none      &kp N4   &kp N5 &kp N6      &zerohash &kp ENTER
+	&kp LCTRL &kp F11 &kp F1 &kp F2 &kp F3  &kp RBKT   &none  &none       &none      &none     &slashes   &onepipe &kp N2 &threeparen &kp MINUS &kp RGUI
+	                    	 &none  &none   &mo _NUMPQ &kp E  &kp LALT    &kp RSHFT  &kp SPACE &mo _NAVIG &none    &none
 			>;
 		};
 
@@ -107,10 +123,10 @@
 // | GUI  |  !  |  V  |  G   |   P   |  B   |                                          |  X   |  W    |  .    |  ;   |   '   | GUI  |
 //                           | NAVIG | BKSP |    E    |   ALT   | |  RRSTHD  |  SPACE  | DEL  | NUMPQ |
 			bindings = <
-	&kp LCTRL &kp C_VOL_UP &kp HOME   &kp UP    &kp END    &kp PG_UP                                             &none       &none        &none        &none        &none &kp RCTRL
-	&kp TAB   &kp C_VOL_DN &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN                                             &none       &none        &none        &none        &none &kp ENTER
-	&kp LGUI  &kp C_MUTE   &kp C_PREV &kp C_PP  &kp C_NEXT &none     &none &none            &none      &none     &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &none &kp RGUI
-	                                  &none     &mo _NAVIG &kp BSPC  &kp E &kp LALT         &kp RSHFT  &kp SPACE &kp DEL     &mo _NUMPQ   &none
+	&kp BSPC  &kp C_VOL_UP &kp HOME   &kp UP    &kp END    &kp PG_UP                                          &none       &none        &none        &none        &none &kp DEL
+	&kp TAB   &kp C_VOL_DN &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN                                          &none       &none        &none        &none        &none &kp ENTER
+	&kp LCTRL &kp C_MUTE   &kp C_PREV &kp C_PP  &kp C_NEXT &none      &none  &none       &none      &none     &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &none &kp RGUI
+	                    	          &none     &none      &mo _NUMPQ &kp E  &kp LALT    &kp RSHFT  &kp SPACE &mo _NAVIG  &none        &none
 			>;
 		};
 	};
