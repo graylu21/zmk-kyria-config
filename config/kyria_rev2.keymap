@@ -34,7 +34,7 @@
             wait-ms = <16>;
             bindings =
                 <&macro_press &kp LCTRL>,
-                <&macro_tap &kp LEFT &kp BSPC>,
+                <&macro_tap &kp BSPC>,
                 <&macro_release &kp LCTRL>;
         };
     };
@@ -69,7 +69,6 @@
                 <&kp BSPC>,
                 <&backword>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-            keep-mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         onepipe: one_pipe {
             compatible = "zmk,behavior-mod-morph";
