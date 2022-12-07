@@ -68,8 +68,8 @@
             bindings =
                 <&kp BSPC>,
                 <&backword>;
-
             mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         onepipe: one_pipe {
             compatible = "zmk,behavior-mod-morph";
