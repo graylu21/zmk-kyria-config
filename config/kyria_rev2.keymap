@@ -133,13 +133,13 @@
         rsthd_layer {
     // ---------------------------------------------------------------------------------------------------------------------------------
     // | BKSP |  J  |  C  |  Y   |  F   |   K   |                                          |   Z   |  L    |  ,    |  U   |   Q   | DEL  |
-    // | TAB  |  R  |  S  |  T   |  H   |   D   |                                          |   M   |  N    |  A    |  I   |   O   | RET  |
+    // | TAB  |  R  |  S  |  H   |  T   |   D   |                                          |   M   |  N    |  A    |  I   |   O   | RET  |
     // | CTRL |  !  |  V  |  G   |  P   |   B   |                                          |   X   |  W    |  .    |  ;   |   '   | GUI  |
     //                                  | NAVIG |    E    |   ALT   |  |  RSHFT  |  SPACE  | NUMPQ |
 
             bindings = <
     &bword      &jcut   &kp C   &kp Y   &kp F   &kp K                                               &kp Z   &kp L   &kp COMMA   &kp U       &kp Q   &kp DEL
-    &kp TAB     &kp R   &kp S   &kp T   &kp H   &kp D                                               &kp M   &kp N   &kp A       &kp I       &kp O   &kp ENTER
+    &kp TAB     &kp R   &kp S   &kp H   &kp T   &kp D                                               &kp M   &kp N   &kp A       &kp I       &kp O   &kp ENTER
     &kp LCTRL   &exall  &kp V   &kp G   &kp P   &kp B   &none   &none       &none      &none        &kp X   &kp W   &kp DOT     &kp SEMI    &kp SQT &kp RGUI
                                 &none   &none   &mo 1   &kp E   &kp LALT    &kp RSHFT  &kp SPACE    &mo 2   &none   &none
             >;
